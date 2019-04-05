@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default function EpisodesList(props) {
   const { episodes, toggleFavAction, favorites } = props;
@@ -8,18 +8,18 @@ export default function EpisodesList(props) {
       <section key={episode.id} className='episode-box'>
         <img
           src={episode.image.medium}
-          alt={'Rick and Morty ${episode.name'}
+          alt={`Rick and Morty ${episode.name}`}
         />
         <div>{episode.name}</div>
-        <section style={{display: 'flex', justifyContent: 'space-between'}}>
+        <section style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div>
-            <button type='button' onClick={() => toggleFavAction(episode)}>
-              {favorites.find(fav => fav.id === episode.id) ? 'Unfav' : 'Fav'}
-            </button>
             Season: {episode.season} Number: {episode.number}
           </div>
+          <button type='button' onClick={() => toggleFavAction(episode)}>
+            {favorites.find(fav => fav.id === episode.id) ? 'Unfav' : 'Fav'}
+          </button>
         </section>
       </section>
-    )
+    );
   })
 }
